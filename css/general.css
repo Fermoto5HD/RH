@@ -1,0 +1,80 @@
+/* Cover */
+	.landing-cover{
+		width: 100%; 
+		min-height: 350px; 
+		background-image: url(../img/cover/default.jpg);
+		background-color: #000; 
+		background-size: cover; 
+		background-position: center; 
+		background-attachment: fixed; 
+	}
+	@media only screen and (min-width: 40.0625em) {
+		.landing-cover{min-height: 600px;}
+	}
+		.landing-cover#inicio{
+			background-image: url(../img/cover/inicio.jpg);
+		}
+
+/* Alert horario de atencion */
+	.landing-cover .alert{margin-top: 325px; padding: 10px 0;} 
+		.landing-cover .alert.cerrado{background-color: rgba(255, 0, 0, 0.75);} 
+		.landing-cover .alert.abierto{background-color: rgba(0, 255, 0, 0.75);} 
+		.landing-cover .alert.abierto30min{background-color: rgba(255, 255, 0, 0.75);} 
+	@media only screen and (min-width: 40.0625em) {
+		.landing-cover .alert{margin-top: 500px;} 
+	}
+
+/* Default movil */
+li.name img{
+	height: 30px; 
+}
+
+/* Desktop */
+@media only screen and (min-width: 40.0625em) {
+	.contain-to-grid#barra-superior{
+		background-image: linear-gradient(to bottom, #000 0%, transparent 100%); 
+		background-color: transparent;
+		transition: 0.2s; 
+	}
+		.contain-to-grid.scroll#barra-superior{ 
+			background-color: #000;
+		}
+	nav.top-bar{
+		height: 160px;
+		background-color: transparent; 
+		transition: 0.2s;
+	}
+		nav.top-bar.scroll{
+			height: 2.8125rem;
+		}
+	.top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+		background-color: transparent;
+	}
+	.top-bar-section ul li {
+		font-size: 30px; 
+	}
+	.top-bar-section ul li:hover {background-color: transparent !important;}
+		.top-bar-section ul li.scroll {
+			font-size: 0.8125rem;
+		}
+	.top-bar-section ul li a {
+		opacity: 0.5; 
+		padding: 30px 15px !important;
+		font-size: 30px; 
+		transition: 0.2s;
+	}
+		.top-bar-section ul li a.scroll {
+			padding: 0px 0.9375rem !important;
+			font-size: 0.8125rem;
+		}
+		.top-bar-section ul li a:hover {opacity: 1; background-color: transparent !important;}
+	li.name img{
+		margin-top: 20px; 
+		height: 80px; 
+		transition: 0.2s;
+	}
+		li.name img.scroll{
+			margin-top: 0px; 
+			height: 40px; 
+		}
+}

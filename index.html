@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Factor RH Creativo</title>
+		<meta property="og:description" content="Peluquería del barrio de Villa del Parque.">
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#000" />
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<script type='text/javascript' src="js/jquery-2.1.4.min.js"></script>
+		<script type='text/javascript' src="js/moment-with-locales.min.js"></script>
+		<script type='text/javascript' src="js/modernizr-3.2.0.min.js"></script>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<link rel="stylesheet" href="css/general.css" />
+		<link rel="stylesheet" href="css/cover.css" />
+		<script src="js/vendor/modernizr.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('header').load('ux/header.html'); 
+				$('main').load('secciones/inicio.html'); 
+				$('footer.row').load('ux/footer.html'); 
+				var query = Modernizr.mq('(min-width: 40.0625em)');
+				if (query) {
+					console.log('Acá anda.');
+					$('nav.top-bar').css('height', '155px'); 
+					$(window).scroll(function (event) {
+						var scroll = $(document).scrollTop(); 
+						if (scroll <= 400){
+							console.log('Barra en 0.'); 
+							$('.contain-to-grid#barra-superior').removeClass('scroll');
+							$('li.name img').removeClass('scroll');  
+							$('.top-bar-section ul li').removeClass('scroll'); 
+							$('.top-bar-section ul li a').removeClass('scroll'); 
+							$('nav.top-bar').removeClass('scroll'); 
+							//$('nav.top-bar').animate({height: '155px'}, 75); 
+							//$('nav.top-bar').animate({height: '155px'}, 75, 
+							//	function(){
+							//		$('.contain-to-grid#barra-superior').removeClass('scroll'); 
+							//	}); 
+							//$('li.name img').animate({height: '150px'}, 75); 
+						} else {
+							console.log('Barra despegada. '); 
+							$('.contain-to-grid#barra-superior').addClass('scroll'); 
+							$('li.name img').addClass('scroll'); 
+							$('.top-bar-section ul li').addClass('scroll'); 
+							$('.top-bar-section ul li a').addClass('scroll'); 
+							$('nav.top-bar').addClass('scroll'); 
+							//$('nav.top-bar').animate({height: '2.8125rem'}, 75); 
+							//$('li.name img').animate({height: '40px'}, 75); 
+						}
+					});
+				} else {
+					console.log('Otra vista.'); 
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<header style="position: fixed; width: 100%; z-index: 10;">
+			<noscript></noscript>
+		</header>
+		<main>
+			Cargando...
+			<noscript></noscript>
+		</main>
+		<footer class="row">
+			<noscript></noscript>
+		</footer>
+		<script type='text/javascript' src="js/jquery-2.1.4.min.js"></script>
+		<script type='text/javascript' src="js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+		<style type="text/css">
+			@font-face {
+				font-family:"Open Sans";
+				font-weight: normal;
+				font-style: normal;
+				src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+			}
+			*{font-family: "Open Sans", "Tahoma", "Verdana", "Arial", "Sans-serif" !important;}
+		</style>
+	</body>
+</html>
