@@ -2,17 +2,35 @@
 <html>
 	<head>
 		<title>Factor RH Creativo</title>
-		<meta property="og:description" content="Peluquería del barrio de Villa del Parque.">
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="theme-color" content="#000" />
 		<link rel="shortcut icon" href="img/favicon.ico">
+		<meta name="description" content='Peluquería del barrio de Villa del Parque.'>
+		<meta name="keywords" content="Factor RH Creativo peluqueria Villa del Parque estilistas color alisado manicuria" />
+		<meta name="author" content="Fernando Osorio" />
+		<meta name="thumbnail" content="http://fatorrhcreativo.16mb.com/img/meta/meta-840x560.jpg" />
+		<meta property="og:description" content="Peluquería del barrio de Villa del Parque.">
+		<meta property="og:site_name" content="Factor RH Creativo" />
+		<meta property="og:title" content="Factor RH Creativo" />
+		<meta property="og:description" content='Peluquería del barrio de Villa del Parque.' />
+		<meta property="og:locale" content="es_AR" />
+		<meta property="og:url" content="http://factorrhcreativo.16mb.com/" />
+		<meta property="og:image" content="http://fatorrhcreativo.16mb.com/img/meta/meta-840x560.jpg" />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:title" content="Sitio personal de Fermoto5HD" />
+		<meta name="twitter:description" content='Peluquería del barrio de Villa del Parque.' />
+		<meta name="twitter:card" content="photo" />
+		<meta name="twitter:url" content="http://fatorrhcreativo.16mb.com/" />
+		<meta name="twitter:image" content="http://fatorrhcreativo.16mb.com/img/meta/meta-840x560.jpg" />
+		<meta name="twitter:image:width" content="435" />
+		<meta name="twitter:image:height" content="290" />
 		<script type='text/javascript' src="js/jquery-2.1.4.min.js"></script>
 		<script type='text/javascript' src="js/moment-with-locales.min.js"></script>
 		<script type='text/javascript' src="js/modernizr-3.2.0.min.js"></script>
+		<script src="//localhost:35729/livereload.js"></script>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<link rel="stylesheet" href="css/general.css" />
-		<link rel="stylesheet" href="css/cover.css" />
 		<script src="js/vendor/modernizr.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -27,10 +45,10 @@
 						var scroll = $(document).scrollTop(); 
 						if (scroll <= 400){
 							console.log('Barra en 0.'); 
-							$('.contain-to-grid#barra-superior').removeClass('scroll');
-							$('li.name img').removeClass('scroll');  
-							$('.top-bar-section ul li').removeClass('scroll'); 
-							$('.top-bar-section ul li a').removeClass('scroll'); 
+							$('.top-bar#barra-superior').removeClass('scroll');
+							$('li.brand img').removeClass('scroll');  
+							$('.top-bar ul.menu li').removeClass('scroll'); 
+							$('.top-bar ul.menu li a').removeClass('scroll'); 
 							$('nav.top-bar').removeClass('scroll'); 
 							//$('nav.top-bar').animate({height: '155px'}, 75); 
 							//$('nav.top-bar').animate({height: '155px'}, 75, 
@@ -40,10 +58,10 @@
 							//$('li.name img').animate({height: '150px'}, 75); 
 						} else {
 							console.log('Barra despegada. '); 
-							$('.contain-to-grid#barra-superior').addClass('scroll'); 
-							$('li.name img').addClass('scroll'); 
-							$('.top-bar-section ul li').addClass('scroll'); 
-							$('.top-bar-section ul li a').addClass('scroll'); 
+							$('.top-bar#barra-superior').addClass('scroll'); 
+							$('li.brand img').addClass('scroll'); 
+							$('.top-bar ul.menu li').addClass('scroll'); 
+							$('.top-bar ul.menu li a').addClass('scroll'); 
 							$('nav.top-bar').addClass('scroll'); 
 							//$('nav.top-bar').animate({height: '2.8125rem'}, 75); 
 							//$('li.name img').animate({height: '40px'}, 75); 

@@ -31,49 +31,66 @@ li.name img{
 
 /* Desktop */
 @media only screen and (min-width: 40.0625em) {
-	.contain-to-grid#barra-superior{
+	.top-bar#barra-superior{
 		background-image: linear-gradient(to bottom, #000 0%, transparent 100%); 
 		background-color: transparent;
 		transition: 0.2s; 
 	}
-		.contain-to-grid.scroll#barra-superior{ 
+		.top-bar.scroll#barra-superior{ 
 			background-color: #000;
 		}
 	nav.top-bar{
-		height: 160px;
+		/*height: 160px;*/
 		background-color: transparent; 
 		transition: 0.2s;
 	}
 		nav.top-bar.scroll{
-			height: 2.8125rem;
+			/*height: 0.5rem;*/
 		}
-	.top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button) {
+	.top-bar ul.menu li, .top-bar li:not(.has-form) a:not(.button) {
 		background-color: transparent;
 	}
-	.top-bar-section ul li {
+	.top-bar ul.menu li {
 		font-size: 30px; 
 	}
-	.top-bar-section ul li:hover {background-color: transparent !important;}
-		.top-bar-section ul li.scroll {
+	.top-bar ul.menu li:hover {background-color: transparent !important;}
+		.top-bar ul.menu li.scroll {
 			font-size: 0.8125rem;
 		}
-	.top-bar-section ul li a {
+	.top-bar ul.menu li a {
 		opacity: 0.5; 
-		padding: 30px 15px !important;
 		font-size: 30px; 
 		transition: 0.2s;
 	}
-		.top-bar-section ul li a.scroll {
-			padding: 0px 0.9375rem !important;
-			font-size: 0.8125rem;
+	.top-bar ul {
+	    background-color: transparent; 
+	}
+	ul.menu li a {
+	    opacity: 0.75; 
+	    padding: 1.5rem 1rem;
+	    background-color: transparent; 
+	    color: #FFF; 
+	}
+	ul.menu li:hover a {
+	    opacity: 1; 
+	}
+		.top-bar ul.menu li a.scroll {
+		    font-size: 1rem;
+		    padding: 10px 15px;
 		}
-		.top-bar-section ul li a:hover {opacity: 1; background-color: transparent !important;}
-	li.name img{
-		margin-top: 20px; 
+		.top-bar ul.menu li a:hover {opacity: 1; background-color: transparent !important;}
+	li.brand, li.brand a{
+		opacity: 1; 
+		background-color: transparent; 
+		margin: 0 !important; 
+		padding: 0 !important; 
+	}
+	li.brand img{
+		margin: 0 !important; 
 		height: 80px; 
 		transition: 0.2s;
 	}
-		li.name img.scroll{
+		li.brand img.scroll{
 			margin-top: 0px; 
 			height: 40px; 
 		}

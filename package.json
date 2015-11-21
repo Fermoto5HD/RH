@@ -1,0 +1,29 @@
+{
+  "name": "RH-v3.0",
+  "version": "3.0.0",
+  "description": "Sitio de la peluquería de Villa del Parque.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fermoto5HD/RH-v3.0.git"
+  },
+  "author": "Fernando Osorio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fermoto5HD/RH-v3.0/issues"
+  },
+  "homepage": "https://github.com/Fermoto5HD/RH-v3.0#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express-server": "^0.5.1",
+    "watchify": "^3.4.0"
+  }
+}
