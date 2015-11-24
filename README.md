@@ -7,6 +7,9 @@ El sitio se creó totalmente desde cero, implementando Foundation, Modernizr, Mo
 * Levantar página con `grunt`. 
 
 ## Changelog 
+### Beta 2.1
+* Página de error 404. 
+
 ### Beta 2
 * Incorporación de hash URL. 
 * Se quitan links a Here Maps y OpenStreetMap por ser innecesarios demasiados links de un mismo mapa. 
