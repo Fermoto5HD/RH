@@ -31,50 +31,9 @@
 		<script src="//localhost:35729/livereload.js"></script>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<link rel="stylesheet" href="css/general.css" />
-		<script src="js/vendor/modernizr.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('header').load('ux/header.html'); 
-				$('main').load('secciones/inicio.html'); 
-				$('footer.row').load('ux/footer.html'); 
-				var query = Modernizr.mq('(min-width: 40.0625em)');
-				if (query) {
-					console.log('Acá anda.');
-					$('nav.top-bar').css('height', '155px'); 
-					$(window).scroll(function (event) {
-						var scroll = $(document).scrollTop(); 
-						if (scroll <= 400){
-							console.log('Barra en 0.'); 
-							$('.top-bar#barra-superior').removeClass('scroll');
-							$('li.brand img').removeClass('scroll');  
-							$('.top-bar ul.menu li').removeClass('scroll'); 
-							$('.top-bar ul.menu li a').removeClass('scroll'); 
-							$('nav.top-bar').removeClass('scroll'); 
-							//$('nav.top-bar').animate({height: '155px'}, 75); 
-							//$('nav.top-bar').animate({height: '155px'}, 75, 
-							//	function(){
-							//		$('.contain-to-grid#barra-superior').removeClass('scroll'); 
-							//	}); 
-							//$('li.name img').animate({height: '150px'}, 75); 
-						} else {
-							console.log('Barra despegada. '); 
-							$('.top-bar#barra-superior').addClass('scroll'); 
-							$('li.brand img').addClass('scroll'); 
-							$('.top-bar ul.menu li').addClass('scroll'); 
-							$('.top-bar ul.menu li a').addClass('scroll'); 
-							$('nav.top-bar').addClass('scroll'); 
-							//$('nav.top-bar').animate({height: '2.8125rem'}, 75); 
-							//$('li.name img').animate({height: '40px'}, 75); 
-						}
-					});
-				} else {
-					console.log('Otra vista.'); 
-				}
-			});
-		</script>
 	</head>
 	<body>
-		<header style="position: fixed; width: 100%; z-index: 10;">
+		<header style="position: fixed; width: 100%; z-index: 1010;">
 			<noscript></noscript>
 		</header>
 		<main>
@@ -84,8 +43,8 @@
 		<footer class="row">
 			<noscript></noscript>
 		</footer>
-		<script type='text/javascript' src="js/jquery-2.1.4.min.js"></script>
 		<script type='text/javascript' src="js/foundation.min.js"></script>
+		<script type='text/javascript' src="js/app.js"></script>
 		<script>
 			$(document).foundation();
 		</script>

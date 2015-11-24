@@ -21,10 +21,59 @@
 		@media only screen and (min-width: 40.0625em) {
 			margin-top: 500px; 
 		}
-		&.cerrado{background-color: rgba(255, 0, 0, 0.75);} 
-		&.abierto{background-color: rgba(0, 255, 0, 0.75);} 
+		&.cerrado{background-color: rgba(255, 0, 0, 0.75); color: #FFF;} 
+		&.abierto{background-color: rgba(0, 0, 0, 0.75); color: #FFF;} 
 		&.abierto30min{background-color: rgba(255, 255, 0, 0.75);} 
 	} 
+
+/* Colectivos */
+ul.colectivos li{
+	display: inline-block; 
+	border: 1px solid #000; 
+	border-radius: 5px; 
+	& div{margin-top: 5px; padding: 0px 10px 2.5px 10px; font-size: 18px; font-weight: bold; }
+
+	&#linea-24{
+		background-image: linear-gradient(to left, rgb(225, 0, 0) 50%, rgb(0, 0, 200) 51%); 
+		& div{
+			background-color: #FFF; 
+		}
+	}
+	&#linea-47{
+		background-image: linear-gradient(to left, black 50%, white 51%); 
+		& div{
+			background-color: rgb(200, 0, 0); 
+			color: #FFF; 
+		}
+	}
+	&#linea-84{
+		background-color: rgb(0, 0, 200); 
+		& div{
+			background-color: #FFF; 
+		}
+	}
+	&#linea-110{
+		background-image: linear-gradient(to left, rgb(0, 0, 200) 50%, black 51%); 
+		& div{
+			background-color: rgb(200, 0, 0); 
+			color: #FFF; 
+		}
+	}
+	&#linea-124{
+		background-image: linear-gradient(to left, black 50%, white 51%); 
+		& div{
+			background-color: rgb(0, 0, 215); 
+			color: #FFF; 
+		}
+	}
+	&#linea-134{
+		background-image: linear-gradient(to left, white 50%, red 51%); 
+		& div{
+			background-color: rgb(245, 245, 125); 
+		}
+	}
+}
+
 
 //Modificaciónes a Foundation v6
 
@@ -32,15 +81,27 @@
 li.name img{
 	height: 30px; 
 }
+ul.menu li {
+	&:hover{
+		background-color: transparent; 
+	}
+	&.active {
+		background-color: rgb(200, 0, 0); 
+	}
+}
 
 /* Desktop */
 	nav.top-bar#barra-superior{
+		padding-top: 0px; 
 		background-color: #000; 
 		@media only screen and (min-width: 40.0625em) {
 			background-image: linear-gradient(to bottom, #000 0%, transparent 100%); 
 			background-color: transparent;
 			transition: 0.2s; 
 			&.scroll{background-color: #000;}
+		}
+		.top-bar-left{
+			padding-top: 10px; 
 		}
 		& ul{
 			background-color: transparent; 	
@@ -61,7 +122,7 @@ li.name img{
 						padding: 1.5rem 1rem;
 						&.scroll{					
 							font-size: 1rem;
-							padding: 10px 15px;
+							padding: 19px 15px;
 						}
 					}
 					&:hover{
@@ -70,6 +131,9 @@ li.name img{
 					}
 					&.scroll {
 						font-size: 1rem;
+					}
+					&.active {
+						background-image: linear-gradient(to bottom, rgb(200, 0, 0) 0%, transparent 100%); 
 					}
 				}
 				&.dropdown.menu li.brand{

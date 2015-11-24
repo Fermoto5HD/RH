@@ -1,43 +1,69 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		var horaApertura = moment("09:00", "HH:mm", 'es');
-		var minutosAntesDeApertura = moment(horaApertura).fromNow(true);
-		console.log(minutosAntesDeApertura); 
-		var horaCierre = moment("18:30", "HH:mm", 'es');
-		var minutosAntesDeCierre = moment(horaCierre).fromNow(true);
-		console.log(minutosAntesDeCierre); 
-		var hoy = [hora = undefined, minuto = undefined, horaActual = undefined, fecha = undefined]; 
+		// Variables horarias. 
+		var hoy = [diaSemana = undefined, hora = undefined, minuto = undefined, horaActual = undefined, fecha = undefined]; 
+		var texto =[cerradoTodoElDia = undefined, cerrado = undefined, apertura30min = undefined, abierto = undefined, cierre30min = undefined]; 
+
+		hoy.diaSemana = moment().get("day");
 		hoy.hora = moment().get("hour");
 		hoy.minuto = moment().get("minute");
 		hoy.horaActual = moment().format("HH:mm");
+		console.log(hoy.diaSemana); 
 		console.log(hoy.horaActual); 
-		if (hoy.hora < 08) {
-			console.log('Cerrado'); 
-			$('.alert .row.columns').html('<p>En estos momentos no estamos atendiendo. </p>\
-				<p>Nuestro horario de atención es de martes a sábados de 9 a 18:30hs. </p>'); 
-			$('.alert').addClass('cerrado'); 
-		} else if (hoy.hora === 08 && hoy.minuto >= 30) {
-			console.log('En minutos abrirá.'); 
-			$('.alert .row.columns').html('<p>En aproximadamente '+minutosAntesDeApertura+' abrimos el local al público. </p>\
-				<center><a href="#"class="radius button" target="blank">Cómo llegar</a></center>'); 
-			$('.alert').addClass('abierto30min'); 
-		} else if (hoy.hora < 18) {
-			console.log('Abierto'); 
-			$('.alert .row.columns').html('<p>Estamos atendiendo hasta las 18:30hs. </p>\
-			<center><a href="#"class="radius button" target="blank">Cómo llegar</a> <a href="tel:45019106"class="radius button" target="blank">Llamar</a></center>'); 
-			$('.alert').addClass('abierto'); 
-		} else if (hoy.hora >= 18 && hoy.minuto < 25) {
-			console.log('Va a cerrar.'); 
-			$('.alert .row.columns').html('<p>En aproximadamente '+minutosAntesDeCierre+' estaremos cerrando la atención al público. </p>\
-			<p>Podés ir, pero no te podremos asegurar que seas atendido a esta hora ya que puede haber una demanda de atención importante. </p>\
-			<center><a href="#"class="radius button" target="blank">Cómo llegar</a> <a href="tel:45019106"class="radius button" target="blank">Llamar</a></center>'); 
-			$('.alert').addClass('abierto30min'); 
+
+		// Horario de apertura
+		var horaApertura = moment("09:00", "HH:mm", 'es');
+		// Horario de cierre
+		var horaCierre = moment("18:30", "HH:mm", 'es');
+		// Cálculo de minutos restantes. 
+		var minutosAntesDeApertura = moment(horaApertura).fromNow(true);
+		var minutosAntesDeCierre = moment(horaCierre).fromNow(true);
+		console.log(minutosAntesDeApertura); 
+		console.log(minutosAntesDeCierre); 
+
+
+		texto.cerradoTodoElDia = '<p>Hoy no estamos atendiendo. </p>\
+					<p>Nuestro horario de atención es de martes a sábados de 9 a 18:30hs. </p>'; 
+		texto.cerrado = '<p>En estos momentos no estamos atendiendo. </p>\
+					<p>Nuestro horario de atención es de martes a sábados de 9 a 18:30hs. </p>'; 
+		texto.apertura30min = '<p>En aproximadamente '+minutosAntesDeApertura+' abrimos el local al público. </p>\
+					<center><a href="#"class="radius button" target="blank">Cómo llegar</a></center>'; 
+		texto.abierto = '<p>Estamos atendiendo hasta las 18:30hs. </p>\
+				<center><a href="#"class="radius button" target="blank">Cómo llegar</a> <a href="tel:45019106"class="radius button" target="blank">Llamar</a></center>'; 
+		texto.cierre30min = '<p>En aproximadamente '+minutosAntesDeCierre+' estaremos cerrando la atención al público. </p>\
+				<p>Podés ir, pero no te podremos asegurar que seas atendido a esta hora ya que puede haber una demanda de atención importante. </p>\
+				<center><a href="#"class="radius button" target="blank">Cómo llegar</a> <a href="tel:45019106"class="radius button" target="blank">Llamar</a></center>'; 
+
+
+		if (hoy.diaSemana === 0 || hoy.diaSemana === 1) {
+			console.log('Hoy no hay atención al público. '); 
+				$('.alert .row.columns').html(texto.cerradoTodoElDia); 
+				$('.alert').addClass('cerrado'); 
 		} else {
-			console.log('Cerrado'); 
-			$('.alert .row.columns').html('<p>En estos momentos no estamos atendiendo. </p>\
-				<p>Nuestro horario de atención es de martes a sábados de 9 a 18:30hs. </p>'); 
-			$('.alert').addClass('cerrado'); 
-		};
+			if (hoy.hora < 08) {
+				console.log('Cerrado'); 
+				$('.alert .row.columns').html(texto.cerrado); 
+				$('.alert').addClass('cerrado'); 
+			} else if (hoy.hora === 08 && hoy.minuto >= 30) {
+				console.log('En minutos abrirá.'); 
+				$('.alert .row.columns').html(texto.apertura30min); 
+				$('.alert').addClass('abierto30min'); 
+			} else if (hoy.hora < 18) {
+				console.log('Abierto'); 
+				$('.alert .row.columns').html(texto.abierto); 
+				$('.alert').addClass('abierto'); 
+			} else if (hoy.hora >= 18 && hoy.minuto < 25) {
+				console.log('Va a cerrar.'); 
+				$('.alert .row.columns').html(texto.cierre30min); 
+				$('.alert').addClass('abierto30min'); 
+			} else {
+				console.log('Cerrado'); 
+				$('.alert .row.columns').html(texto.cerrado); 
+				$('.alert').addClass('cerrado'); 
+			};
+		}; 
+
+		// Carga widget de USIG. 
 		$('#embed-ComoLlego').load('secciones/comollego.html');
 	});
 </script>
@@ -51,16 +77,17 @@
 	</div>
 </div>
 <div class="row">
+	<h2>Algunos servicios que ofrecemos</h2>
 	<div class="medium-4 columns">
-	<h3>Photoshop</h3>
+	<h3>Corte y peinados</h3>
 	<p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
 	</div>
 	<div class="medium-4 columns">
-	<h3>Javascript</h3>
+	<h3>Alisados</h3>
 	<p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
 	</div>
 	<div class="medium-4 columns">
-	<h3>Marketing</h3>
+	<h3>Manicuría</h3>
 	<p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna.</p>
 	</div>
 </div>
@@ -70,19 +97,17 @@
 	<h3>¿Dónde estamos?</h3>
 	<p>Nos encontramos en Melincué 3137, en el barrio de Villa del Parque.</p>
 	<b>Colectivos que te acercan</b>
-	<ul>
-		<li>24</li>
-		<li>47</li>
-		<li>84</li>
-		<li>110</li>
-		<li>124</li>
-		<li>134</li>
+	<ul class="colectivos">
+		<li id="linea-24"><div>24</div></li>
+		<li id="linea-47"><div>47</div></li>
+		<li id="linea-84"><div>84</div></li>
+		<li id="linea-110"><div>110</div></li>
+		<li id="linea-124"><div>124</div></li>
+		<li id="linea-134"><div>134</div></li>
 	</ul>
 	<ul class="tabs" data-tabs id="example-tabs">
-		<li class="tabs-title is-active"><a href="#GMaps" aria-selected="true">GMaps</a></li>
+		<li class="tabs-title is-active"><a href="#GMaps" aria-selected="true">Google Maps</a></li>
 		<li class="tabs-title"><a href="#BAComoLlego">BA ComoLlego</a></li>
-		<li class="tabs-title"><a href="#HereMaps">Here Maps</a></li>
-		<li class="tabs-title"><a href="#OpenStreetMap">OpenStreetMap</a></li>
 	</ul>
 	<div class="tabs-content" data-tabs-content="example-tabs">
 		<div class="tabs-panel is-active" id="GMaps">
@@ -94,16 +119,6 @@
 			<h4>BA ComoLlego</h4>
 			<div id="embed-ComoLlego"></div>
 			<a href="http://mapa.buenosaires.gob.ar/comollego/?lat=-34.602373&lng=-58.493265&zl=15&modo=transporte&dir=Melincue+3137" class="radius button" target="blank">Ver en BA ComoLlego</a>
-		</div>
-		<div class="tabs-panel" id="HereMaps">
-			<h4>Here Maps</h4>
-			<div style="height: 450px; background-image: url(img/hereMaps.png); background-size: cover; background-position: center;"></div>
-			<a href="https://www.here.com/argentina/ciudad-de-buenos-aires/street-square/melincu%C3%A9-3137--loc-dmVyc2lvbj0xO3RpdGxlPU1lbGluY3UlQzMlQTkrMzEzNztsYXQ9LTM0LjYwMjM4O2xvbj0tNTguNDkzMjc7c3RyZWV0PU1lbGluY3UlQzMlQTk7aG91c2U9MzEzNztjaXR5PUNpdWRhZCtkZStCdWVub3MrQWlyZXM7cG9zdGFsQ29kZT0xNDE3O2NvdW50cnk9QVJHO2Rpc3RyaWN0PVZpbGxhK2RlbCtQYXJxdWU7c3RhdGU9Q2l1ZGFkK0F1dCVDMyVCM25vbWErZGUrQnVlbm9zK0FpcmVzO3N0YXRlQ29kZT1DRjtjb3VudHk9Q2l1ZGFkK2RlK0J1ZW5vcytBaXJlcztjYXRlZ29yeUlkPWJ1aWxkaW5nO3NvdXJjZVN5c3RlbT1pbnRlcm5hbDtubGF0PS0zNC42MDIzOTtubG9uPS01OC40OTMyNg?map=-34.60238,-58.49327,16,normal&msg=Melincu%C3%A9%203137" class="radius button" target="blank">Abrir Here Maps</a>
-		</div>
-		<div class="tabs-panel" id="OpenStreetMap">
-			<h4>OpenStreetMap</h4>
-			<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=-58.49426329135895%2C-34.60287900502823%2C-58.493126034736626%2C-34.601861227307644&amp;layer=mapnik&amp;marker=-34.602370117727084%2C-58.49369466304779" style="border: 0"></iframe>
-			<a href="https://www.openstreetmap.org/node/1806603809#map=19/-34.60237/-58.49336"class="radius button" target="blank">Ver en OpenStreetMap</a>
 		</div>
 	</div>
 </div>

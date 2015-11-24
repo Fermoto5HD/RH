@@ -7,6 +7,12 @@ El sitio se creó totalmente desde cero, implementando Foundation, Modernizr, Mo
 * Levantar página con `grunt`. 
 
 ## Changelog 
+### Beta 2
+* Incorporación de hash URL. 
+* Se quitan links a Here Maps y OpenStreetMap por ser innecesarios demasiados links de un mismo mapa. 
+* Varios cambios en el SASS y JS. 
+* Nuevos elementos propios. 
+
 ### Beta 1
 * Migrado totalmente a Foundation 6. 
 * Corrección de bugs y funciones a los nuevos elementos de Foundation. 
