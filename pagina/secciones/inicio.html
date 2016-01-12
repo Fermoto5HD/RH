@@ -96,30 +96,19 @@
 	<hr>
 	<h3>¿Dónde estamos?</h3>
 	<p>Nos encontramos en Melincué 3137, en el barrio de Villa del Parque.</p>
-	<b>Colectivos que te acercan</b>
-	<ul class="colectivos">
-		<li id="linea-24"><div>24</div></li>
-		<li id="linea-47"><div>47</div></li>
-		<li id="linea-84"><div>84</div></li>
-		<li id="linea-110"><div>110</div></li>
-		<li id="linea-124"><div>124</div></li>
-		<li id="linea-134"><div>134</div></li>
-	</ul>
-	<ul class="tabs" data-tabs id="example-tabs">
-		<li class="tabs-title is-active"><a href="#GMaps" aria-selected="true">Google Maps</a></li>
-		<li class="tabs-title"><a href="#BAComoLlego">BA ComoLlego</a></li>
-	</ul>
-	<div class="tabs-content" data-tabs-content="example-tabs">
-		<div class="tabs-panel is-active" id="GMaps">
-			<h4>Google Maps</h4>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3284.068358471385!2d-58.493291!3d-34.602432900000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6245bc68d1f%3A0xc6f5d0b589570008!2sMelincu%C3%A9+3137!5e0!3m2!1sen!2s!4v1400684290987" width="100%" height="450" frameborder="0" style="border:0"></iframe>
-			<a href="https://goo.gl/maps/p9Leth7h6Ey" class="radius button" target="blank">Abrir Google Maps</a>
-		</div>
-		<div class="tabs-panel" id="BAComoLlego">
-			<h4>BA ComoLlego</h4>
-			<div id="embed-ComoLlego"></div>
-			<a href="http://mapa.buenosaires.gob.ar/comollego/?lat=-34.602373&lng=-58.493265&zl=15&modo=transporte&dir=Melincue+3137" class="radius button" target="blank">Ver en BA ComoLlego</a>
-		</div>
+	<hr>
+	<h4>Colectivos que te acercan</h4>
+	<div class="colectivos">
+		<div class="pill colectivo24"><div class="primero"><span class="segundo"></span></div> <span class="linea">24</span></div>
+		<div class="pill colectivo47"><div class="primero"><span class="segundo"></span></div> <span class="linea">47</span></div>
+		<div class="pill colectivo84"><div class="primero"><span class="segundo"></span></div> <span class="linea">84</span></div>
+		<div class="pill colectivo110"><div class="primero"><span class="segundo"></span></div> <span class="linea">110</span></div>
+		<div class="pill colectivo124"><div class="primero"><span class="segundo"></span></div> <span class="linea">124</span></div>
+		<div class="pill colectivo134"><div class="primero"><span class="segundo"></span></div> <span class="linea">134</span></div>
 	</div>
+	<hr>
+	<h4>Ubicación en el mapa</h4>
+	<a href="https://goo.gl/maps/p9Leth7h6Ey" class="radius button" id="GMaps" target="blank">Abrir en Google Maps</a><a href="http://mapa.buenosaires.gob.ar/comollego/?lat=-34.602373&lng=-58.493265&zl=15&modo=transporte&dir=Melincue+3137" class="radius button" id="BAcomollego" target="blank">Consultar en BA ComoLlego</a>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3284.068358471385!2d-58.493291!3d-34.602432900000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6245bc68d1f%3A0xc6f5d0b589570008!2sMelincu%C3%A9+3137!5e0!3m2!1sen!2s!4v1400684290987" width="100%" height="450" frameborder="0" style="border:0"></iframe>
 </div>
 <script>$(document).foundation();</script>

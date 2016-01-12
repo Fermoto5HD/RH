@@ -7,6 +7,13 @@ El sitio se creó totalmente desde cero, implementando Foundation, Modernizr, Mo
 * Levantar página con `grunt`. 
 
 ## Changelog 
+### Beta 3 
+* Se agrega el estilo Material Design para los colectivos, extraídos del repositorio "BA-Como-Llego" del GCBA. 
+* Se simplifica la visualización del mapa y los botones fueron colocados en un lugar estratégico para los usuarios mobile. 
+* Se agrega un texto en caso de ingresar con JavaScript deshabilitado. 
+* Borrado de archivos no utilizados. 
+* Footer modificado, con año actualizable automáticamente. 
+
 ### Beta 2.1
 * Página de error 404. 
 

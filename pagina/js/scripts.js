@@ -9,13 +9,7 @@ var paginaActual = undefined;
 		$('footer.row').load('ux/footer.html'); 
 		if(window.location.hash) {
 				var hash = window.location.hash.substring(1); 
-				var cargapagina = $.get( '../secciones/'+hash+'.html', function(laPagina) {
-					$('main').html(laPagina);
-				})
-					.fail(function() { 
-						$('main').load('../secciones/404.html'); 
-					});
-				paginaActual = hash; 
+				seccion(hash); 
 		} else {
 				seccion('inicio');
 				paginaActual = 'inicio'; 
@@ -78,7 +72,7 @@ var seccion = function(pagina){
 		haciaArriba(); 
 		console.info('Estás en la sección '+pagina+'. '); 
 	};
-}
+} 
 
 var haciaArriba = function(){
 	console.log("Desplazando el sitio hacia arriba.");

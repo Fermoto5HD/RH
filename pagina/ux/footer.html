@@ -13,13 +13,17 @@
 		</div>
 	</div>
 </div> -->
-
 <div class="row column">
 	<hr>
 	<ul class="menu">
-		<li><a href="#">Home</a></li>
+		<!--<li><a href="#">Home</a></li>
 		<li><a href="#">Quienes somos</a></li>
-		<li><a href="#">Contacto</a></li>
-		<li class="float-right">Copyright 2015 - Fermoto5HD</li>
+		<li><a href="#">Contacto</a></li>-->
+		<li class="float-right">Copyright <span id="año"></span>Factor RH Creativo, Villa del Parque, Buenos Aires.</li>
 	</ul>
 </div>
+<script type="text/javascript">
+	var d = new Date();
+	var año = d.getFullYear();
+	$("#año").html(año+' - '); 
+</script>
