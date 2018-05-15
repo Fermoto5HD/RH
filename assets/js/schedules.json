@@ -1,0 +1,33 @@
+[
+	{
+		"available": false
+	},
+	{
+		"available": true,
+		"time_open": "09:00:00",
+		"time_close": "18:30:00"
+	},
+	{
+		"available": true,
+		"time_open": "09:00:00",
+		"time_close": "18:30:00"
+	},
+	{
+		"available": true,
+		"time_open": "09:00:00",
+		"time_close": "18:30:00"
+	},
+	{
+		"available": true,
+		"time_open": "09:00:00",
+		"time_close": "18:30:00"
+	},
+	{
+		"available": true,
+		"time_open": "09:00:00",
+		"time_close": "18:30:00"
+	},
+	{
+		"available": false
+	}
+]

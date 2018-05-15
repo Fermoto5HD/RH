@@ -1,0 +1,33 @@
+.shop-status {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 10px;
+		height: 100%;
+	}
+	&.open::before {
+		background-color: green;
+	}
+	&.closing::before {
+		background-color: orange;
+	}
+	&.closed::before {
+		background-color: rgb(20, 20, 20);
+	}
+	strong {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+	.btn-cta {
+		position: absolute;
+		right: 0px;
+	}
+}

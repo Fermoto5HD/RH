@@ -1,0 +1,49 @@
+// Selección
+::selection{
+	background-color: rgb(40, 40, 40);
+	color: white;
+}
+::-moz-selection{
+	background-color: rgb(40, 40, 40); 
+	color: white;
+}
+
+// Fuente
+@font-face {
+	font: {
+	family: "DIN Pro";
+		weight: 400;
+		style: normal;
+	}
+	src: url("../fonts/DINPro.otf") format("opentype");
+}
+@font-face {
+	font: {
+	family: "DIN Pro";
+		weight: 700;
+		style: normal;
+	}
+	src: url("../fonts/DINPro-Bold.otf") format("opentype");
+}
+
+@font-face {
+	font: {
+	family: "DIN Pro Condensed";
+		weight: bold;
+		style: normal;
+	}
+	src: url("../fonts/DINPro-CondBold.otf") format("opentype");
+}
+
+// Bootstrap v4.1
+@import 'twbs/bootstrap.scss';
+
+// Estilos propios
+@import 'template/header.scss';
+@import 'template/footer.scss';
+@import 'template/shop-status.scss';
+@import 'template/transport.scss';
+
+body {
+	scroll-behavior: smooth;
+}

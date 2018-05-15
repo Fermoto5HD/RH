@@ -1,0 +1,8 @@
+.shop-status {
+  padding: 10px; }
+  .shop-status strong {
+    font-size: 18px;
+    text-transform: uppercase; }
+  .shop-status .btn-cta {
+    position: absolute;
+    right: 0px; }
