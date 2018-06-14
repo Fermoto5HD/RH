@@ -2,7 +2,7 @@ const path = require('path'),
       webpack = require('webpack'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       minify = require('html-minifier').minify,
-      IS_DEV = (process.env.NODE_ENV === 'dev'), /* Is the current build a development build */
+      dev_mode = (process.env.NODE_ENV === 'dev'), /* Is the current build a development build */
       dirNode = 'node_modules',
       dirApp = path.join(__dirname, 'src'),
       dirAssets = path.join(__dirname, 'assets'),
@@ -24,7 +24,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            IS_DEV: IS_DEV
+            IS_DEV: dev_mode
         }),
 
         /*new webpack.ProvidePlugin({
@@ -64,7 +64,7 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: IS_DEV
+                            sourceMap: dev_mode
                         }
                     },
                 ]
@@ -78,13 +78,13 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: IS_DEV
+                            sourceMap: dev_mode
                         }
                     },
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: IS_DEV,
+                            sourceMap: dev_mode,
                             includePaths: [dirAssets]
                         }
                     }
@@ -100,8 +100,7 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif)$/i,
                 loaders: [
-                    'file-loader?{name: "[path][name].webp"}',
-                    'webp-loader?{quality: 13}'
+                    'file-loader?{name: "[path][name].[ext]"}'
                 ]
             },
             // SVG & FONTS

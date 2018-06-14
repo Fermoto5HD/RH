@@ -1,5 +1,5 @@
 header {
-	.navbar {
+	.navbar.fixed-top {
 		background-image: linear-gradient(to bottom, rgba(40, 40, 40, 0.75) 0%, transparent 100%);
 		background-color: rgba(40, 40, 40, 0);
 		padding-top: 0px;
@@ -31,6 +31,7 @@ header {
 				@include media-breakpoint-down(md) {
 					text-align: center;
 					border-bottom: 1px solid #111;
+					display: none;
 				}
 			}
 			&.logo {
@@ -66,6 +67,38 @@ header {
 						height: 50px;
 					}
 				}
+			}
+		}
+	}
+	.navbar.fixed-bottom {
+		width: 100%;
+		height: 50px;
+		padding: 0px;
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.75);
+		display: none;
+		@include media-breakpoint-down(md) {
+			display: block;
+		}
+		a {
+			display: inline-block;
+			text-align: center;
+			padding: 7px 0px;
+			color: white;
+			width: 15%;
+			text-decoration: none;
+			i svg {
+				fill: white;
+			}
+			span {
+				display: block;
+				font-size: 9px;
+				color: white;
+			}
+			&.active {
+				background-color: white;
+				i svg {fill: black};
+				span {color: black};
 			}
 		}
 	}

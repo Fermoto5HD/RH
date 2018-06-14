@@ -50,6 +50,12 @@
 			background-color: white;
 			color: black;
 		}
+		&-109 {
+			&::before {background-color: #F1DFA7;}
+			&::after {background-color: black;}
+			background-color: #CC263B;
+			color: white;
+		}
 		&-110 {
 			&::before {background-color: #6591DA;}
 			&::after {background-color: black;}

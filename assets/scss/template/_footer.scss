@@ -4,6 +4,9 @@ footer {
 		top: 40px;
 		bottom: 40px;
 	}
+	@include media-breakpoint-down(md) {
+		padding-bottom: 90px;
+	}
 	.fm5hd-brand {
 		margin-top: -5px;
 	}

@@ -41,9 +41,15 @@
 // Estilos propios
 @import 'template/header.scss';
 @import 'template/footer.scss';
+@import 'template/main.scss';
 @import 'template/shop-status.scss';
 @import 'template/transport.scss';
 
 body {
 	scroll-behavior: smooth;
+}
+
+.at::before {
+	content: '@';
+	display: inline-block;
 }
