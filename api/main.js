@@ -33,7 +33,14 @@ module.exports = function (app) {
 				month: d.getSeconds()
 			}
 
+			const date_str = date.day + '/' + date.month;
+
 			let result = null;
+
+			let when_opens = 'el próximo martes';
+			if (week_open.find(day => day === date.day_position+1)) {
+				when_opens = 'mañana';
+			}
 
 			/* Condicional provisorio por apertura de local. */
 			if (((date.day < 15) && (date.month === 6)) && (date.year === 2018)) {
@@ -48,6 +55,34 @@ module.exports = function (app) {
 									link: '#location'
 								}
 							]
+						};
+			}
+			else if ('18/06' === date_str) {
+				result = {
+							class_element: 'closed',
+							status: 'Cerrado',
+							message: 'Hoy es feriado! Abriremos ' + when_opens + ' en el horario de siempre.'
+						};
+			}
+			else if ('09/07' === date_str) {
+				result = {
+							class_element: 'closed',
+							status: 'Cerrado',
+							message: 'Hoy es feriado por la Independencia de nuestro país! Abriremos ' + when_opens + ' en el horario de siempre.'
+						};
+			}
+			else if ('25/12' === date_str) {
+				result = {
+							class_element: 'closed',
+							status: 'Cerrado',
+							message: '¡Feliz navidad! Abriremos ' + when_opens + ' en el horario de siempre.'
+						};
+			}
+			else if ('01/01' === date_str) {
+				result = {
+							class_element: 'closed',
+							status: 'Cerrado',
+							message: '¡Feliz año nuevo! Abriremos ' + when_opens + ' en el horario de siempre.'
 						};
 			}
 			else
@@ -75,7 +110,7 @@ module.exports = function (app) {
 						result = {
 							class_element: 'closed',
 							status: 'Cerrado',
-							message: 'Atendemos de Martes a Sábados de ' + hours.from[0] + ' a ' + hours.to[0] + 'hs.',
+							message: 'Atendemos ' + when_opens + ' de ' + hours.from[0] + ' a ' + hours.to[0] + 'hs.',
 							cta: [
 								{
 									class_element: 'btn btn-outline-light',
@@ -89,7 +124,7 @@ module.exports = function (app) {
 					result = {
 						class_element: 'closed',
 						status: 'Cerrado',
-						message: 'Atendemos de Martes a Sábados de ' + hours.from[0] + ':' + hours.from[1] + ' a ' + hours.to[0] + ':' + hours.to[1] + 'hs.',
+						message: 'Atendemos ' + when_opens + ' de ' + hours.from[0] + ' a ' + hours.to[0] + 'hs.',
 						cta: [
 							{
 								class_element: 'btn btn-outline-light',
