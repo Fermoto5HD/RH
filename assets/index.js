@@ -21,8 +21,30 @@ function _detectPosition(position) {
 	}
 }
 
+var map_visible = false;
+
+function _isVisible(el) {
+    var rect = el.getBoundingClientRect();
+    var elemTop = rect.top;
+    var elemBottom = rect.bottom;
+
+    // Only completely visible elements return true:
+    //var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    // Partially visible elements return true:
+    var isVisible = elemTop < window.innerHeight && elemBottom >= 0;
+    return isVisible;
+}
+
 window.document.body.onscroll = function() {
 	_detectPosition(this.pageYOffset);
+	if (_isVisible(document.getElementById('location'))) {
+		if (google) {
+			if (map_visible === false) {
+				map_visible = true;
+				_loadMap();
+			}
+		}
+	}
 }
 _detectPosition(window.document.pageYOffset);
 
