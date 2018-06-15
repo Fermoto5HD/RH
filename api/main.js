@@ -16,7 +16,7 @@ module.exports = function (app) {
 		.get('/now', function(req, res) {
 			const week_open = [1, 2, 3, 4, 5];
 			const hours = {
-				from: [09, 00],
+				from: [09, 30],
 				to: [18, 00]
 			};
 
@@ -88,7 +88,7 @@ module.exports = function (app) {
 			else
 			{
 				if (week_open.find(day => day === date.day_position)) {
-					if (time.hour > hours.from[0] && time.hour < hours.to[0]) {
+					if (time.hour >= hours.from[0] && time.hour < hours.to[0]) {
 						result = {
 							class_element: 'open',
 							status: 'Abierto',
@@ -106,11 +106,39 @@ module.exports = function (app) {
 								}
 							]
 						};
+					} else if (time.hour < hours.from[0]) {
+						result = {
+							class_element: 'closed',
+							status: 'Cerrado',
+							message: 'Hoy atendemos de ' + hours.from[0] + ':' + hours.from[1] + ' a ' + hours.to[0] + 'hs.',
+							cta: [
+								{
+									class_element: 'btn btn-outline-light',
+									string: 'Contacto',
+									link: '#contact'
+								}
+							]
+						};
+						/* Condicional provisorio por apertura de local. */
+						if (((date.day === 15) && (date.month === 6)) && (date.year === 2018)) {
+							result = {
+										class_element: 'closed',
+										status: 'Cerrado',
+										message: 'Reabrimos hoy a partir de las 9:30hs. ¡Te esperamos!',
+										cta: [
+											{
+												class_element: 'btn btn-outline-light',
+												string: 'Ubicación',
+												link: '#location'
+											}
+										]
+									};
+						}
 					} else {
 						result = {
 							class_element: 'closed',
 							status: 'Cerrado',
-							message: 'Atendemos ' + when_opens + ' de ' + hours.from[0] + ' a ' + hours.to[0] + 'hs.',
+							message: 'Atendemos ' + when_opens + ' de ' + hours.from[0] + ':' + hours.from[1] + ' a ' + hours.to[0] + 'hs.',
 							cta: [
 								{
 									class_element: 'btn btn-outline-light',
@@ -124,7 +152,7 @@ module.exports = function (app) {
 					result = {
 						class_element: 'closed',
 						status: 'Cerrado',
-						message: 'Atendemos ' + when_opens + ' de ' + hours.from[0] + ' a ' + hours.to[0] + 'hs.',
+						message: 'Atendemos ' + when_opens + ' de ' + hours.from[0] + ':' + hours.from[1] + ' a ' + hours.to[0] + 'hs.',
 						cta: [
 							{
 								class_element: 'btn btn-outline-light',
