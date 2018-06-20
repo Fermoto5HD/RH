@@ -341,24 +341,34 @@ if (email.length > 0) {
 function shopStatus() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.overrideMimeType("application/json");
-	xhttp.open("GET", "api/now", true);
+	xhttp.open("GET", "api/home", true);
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var res = JSON.parse(xhttp.response);
-			document.getElementById("shop-status").classList.add(res.class_element);
-			document.getElementById("shop-status").getElementsByTagName("strong")[0].textContent = res.status;
-			document.getElementById("shop-status").getElementsByTagName("p")[0].textContent = res.message;
-			if (res.cta.length > 0) {
-				var btn_group = document.createElement("div");
-				btn_group.classList = 'btn-group';
-				var the_group = document.getElementById("shop-status").getElementsByClassName("container-fluid")[0].appendChild(btn_group);
-				res.cta.forEach(function(v, i) {
-					var button = document.createElement("a");
-					button.classList = v.class_element;
-					button.href = v.link;
-					button.appendChild(document.createTextNode(v.string));
-					the_group.appendChild(button);
-				});
+
+			var cover = res.cover;
+			var shop = res.shop;
+
+			document.getElementById("jumbotron-text").getElementsByTagName('h1')[0].textContent = cover.title;
+			document.getElementById("jumbotron-text").getElementsByTagName('p')[0].textContent = cover.lead;
+			document.getElementById("home").style.backgroundImage = 'url("' + cover.image + '")';
+
+			document.getElementById("shop-status").classList.add(shop.class_element);
+			document.getElementById("shop-status").getElementsByTagName("strong")[0].textContent = shop.status;
+			document.getElementById("shop-status").getElementsByTagName("p")[0].textContent = shop.message;
+			if (shop.cta) {
+				if (shop.cta.length > 0) {
+					var btn_group = document.createElement("div");
+					btn_group.classList = 'btn-group';
+					var the_group = document.getElementById("shop-status").getElementsByClassName("container-fluid")[0].appendChild(btn_group);
+					shop.cta.forEach(function(v, i) {
+						var button = document.createElement("a");
+						button.classList = v.class_element;
+						button.href = v.link;
+						button.appendChild(document.createTextNode(v.string));
+						the_group.appendChild(button);
+					});
+				}
 			}
 		}
 	};
