@@ -12,8 +12,8 @@ function coverHome() {
 	return {
 		'image': 'assets/img/cover-teaser.jpg',
 		'video': null,
-		'title': "Pronto volvemos",
-		'lead': 'Dentro de unas semanas volvemos a abrir.'
+		'title': "Factor RH Creativo",
+		'lead': '¡Bienvenidos!'
 	}
 }
 
